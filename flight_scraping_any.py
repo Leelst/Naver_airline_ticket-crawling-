@@ -23,7 +23,7 @@ import def_
 if __name__ == "__main__":
 
     # 출발 일자 리스트 정리 
-    depart_day_all, ls_depart, back_day_all, ls_back = def_.ready(28+214) # core.txt에서 인덱스 58에서 끊겼으면 def_.ready(28+59) # 아래에 바꿔줘야할 것 더 있음
+    depart_day_all, ls_depart, back_day_all, ls_back = def_.ready(28+210) # core.txt에서 인덱스 58에서 끊겼으면 def_.ready(28+59) # 아래에 바꿔줘야할 것 더 있음
 
     back_day_all = back_day_all.tolist() # 밑에서 리스트.pop(0) 을 쓰기 위해 numpy 형식이었던 것을 list로 바꿔줌
 
@@ -105,9 +105,9 @@ if __name__ == "__main__":
             # 첫번째 가격정보 가져오기
             elem_direct = WebDriverWait(browser, 7).until(EC.presence_of_element_located((By.XPATH, '//div[@class="concurrent_ConcurrentItemContainer__2lQVG result"]')))
 
-            direct_price_ls.append((idx+214, elem_direct.text))
+            direct_price_ls.append((idx+210, elem_direct.text))
         except:
-            direct_price_ls.append((idx+214, 0))
+            direct_price_ls.append((idx+210, 0))
 
 
         # 경유가 없을 경우 예외처리
@@ -127,10 +127,10 @@ if __name__ == "__main__":
             # 페이지에서 첫번째 가격정보 데이터 나올때까지 대기 
             elem_indirect = WebDriverWait(browser, 7).until(EC.presence_of_element_located((By.XPATH, '//div[@class = "concurrent_ConcurrentItemContainer__2lQVG result"]')))
 
-            indirect_price_ls.append((idx+214, elem_indirect.text))
+            indirect_price_ls.append((idx+210, elem_indirect.text))
 
         except:
-            indirect_price_ls.append((idx+214, 0))
+            indirect_price_ls.append((idx+210, 0))
 
         print(f"[{direct_price_ls[-1]}&&&&&{indirect_price_ls[-1]}],") # 가장 최근에 수집한 직항 & 경우 데이터 수집 
 
